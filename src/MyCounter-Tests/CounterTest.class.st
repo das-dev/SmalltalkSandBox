@@ -31,7 +31,6 @@ CounterTest >> testIncrement [
 	| c |
 	c := Counter new.
 	c
-		count: 0;
 		increment;
 		increment.
 	self assert: c count equals: 2
@@ -44,4 +43,10 @@ CounterTest >> testPrinting [
 	c := Counter new.
 	c count: 2.
 	self assert: c printString equals: 'a Counter with value: 2'
+]
+
+{ #category : #'tests - initialization' }
+CounterTest >> testValueAtCreationTimeIsZero [
+	
+	self assert: Counter new count equals: 0
 ]
