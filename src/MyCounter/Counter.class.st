@@ -37,3 +37,12 @@ Counter >> increment [
 	
 	self count: self count + 1
 ]
+
+{ #category : #printing }
+Counter >> printOn: aStream [
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: ' with value: ';
+		nextPutAll: self count asString
+]

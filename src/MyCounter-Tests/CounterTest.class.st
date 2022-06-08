@@ -36,3 +36,12 @@ CounterTest >> testIncrement [
 		increment.
 	self assert: c count equals: 2
 ]
+
+{ #category : #'tests - printing' }
+CounterTest >> testPrinting [
+	
+	| c |
+	c := Counter new.
+	c count: 2.
+	self assert: c printString equals: 'a Counter with value: 2'
+]
