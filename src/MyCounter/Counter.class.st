@@ -21,7 +21,19 @@ Counter >> count [
 ]
 
 { #category : #accessing }
-Counter >> count: anObject [
+Counter >> count: aValue [
 
-	count := anObject
+	count := aValue
+]
+
+{ #category : #operations }
+Counter >> decrement [
+	
+	self count: self count - 1
+]
+
+{ #category : #operations }
+Counter >> increment [
+	
+	self count: self count + 1
 ]
