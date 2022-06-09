@@ -20,3 +20,13 @@ NFSDirectoryTest >> testNewDirectoryIsEmpty [
 	directory := NFSDirectory new.
 	self assert: directory children isEmpty
 ]
+
+{ #category : #'tests - storing' }
+NFSDirectoryTest >> testStoringNewDirectory [
+	
+	| rootDirectory nestedDirectory |
+	rootDirectory := NFSDirectory new.
+	nestedDirectory := NFSDirectory new.
+	rootDirectory addElement: nestedDirectory.
+	self assert: (rootDirectory children includes: nestedDirectory)
+]
