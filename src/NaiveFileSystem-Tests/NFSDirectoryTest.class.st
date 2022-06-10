@@ -28,6 +28,14 @@ NFSDirectoryTest >> testNewDirectoryIsEmpty [
 	self assert: NFSDirectory new children isEmpty
 ]
 
+{ #category : #'tests - printing' }
+NFSDirectoryTest >> testPrinting [
+
+	| directory |
+	directory := NFSDirectory new name: 'comics'.
+	self assert: directory printString equals: 'comics'
+]
+
 { #category : #'tests - storing' }
 NFSDirectoryTest >> testStoringNewDirectory [
 

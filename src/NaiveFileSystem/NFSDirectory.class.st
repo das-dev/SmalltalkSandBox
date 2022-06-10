@@ -56,3 +56,9 @@ NFSDirectory >> parent: aNFSDirectory [
 
 	parent := aNFSDirectory
 ]
+
+{ #category : #printing }
+NFSDirectory >> printOn: aStream [
+	
+	aStream << self name
+]
