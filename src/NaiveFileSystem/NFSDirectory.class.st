@@ -3,7 +3,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'name',
-		'children'
+		'children',
+		'parent'
 	],
 	#category : #NaiveFileSystem
 }
@@ -11,11 +12,13 @@ Class {
 { #category : #storing }
 NFSDirectory >> addElement: aNFSDirectory [ 
 	
+	aNFSDirectory parent: self.
 	self children: aNFSDirectory
 ]
 
 { #category : #accessing }
 NFSDirectory >> children [
+
 	^ children
 ]
 
@@ -40,4 +43,16 @@ NFSDirectory >> name [
 { #category : #accessing }
 NFSDirectory >> name: aName [
 	name := aName
+]
+
+{ #category : #accessing }
+NFSDirectory >> parent [
+
+	^ parent
+]
+
+{ #category : #accessing }
+NFSDirectory >> parent: aNFSDirectory [ 
+
+	parent := aNFSDirectory
 ]
