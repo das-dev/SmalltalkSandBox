@@ -22,7 +22,13 @@ NFSDirectoryTest >> testNestedDirectoryHasParent [
 	self assert: nestedDirectory parent equals: rootDirectory
 ]
 
-{ #category : #'tests - storing' }
+{ #category : #'tests - initial state' }
+NFSDirectoryTest >> testNewDirectoryHasDefaultName [
+	
+	self assert: NFSDirectory new name equals: 'New Directory'
+]
+
+{ #category : #'tests - initial state' }
 NFSDirectoryTest >> testNewDirectoryIsEmpty [
 	
 	self assert: NFSDirectory new children isEmpty

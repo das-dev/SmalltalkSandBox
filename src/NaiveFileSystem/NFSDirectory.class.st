@@ -28,11 +28,18 @@ NFSDirectory >> children: aNFSDirectory [
 	children add: aNFSDirectory
 ]
 
+{ #category : #defaults }
+NFSDirectory >> defaultName [
+	
+	^ 'New Directory'
+]
+
 { #category : #initialization }
 NFSDirectory >> initialize [ 
 	
 	super initialize.
-	children := OrderedCollection new
+	name := self defaultName.
+	children := OrderedCollection new.
 ]
 
 { #category : #accessing }
