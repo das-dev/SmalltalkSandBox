@@ -59,6 +59,9 @@ NFSDirectory >> parent: aNFSDirectory [
 
 { #category : #printing }
 NFSDirectory >> printOn: aStream [
-	
+
+	self parent ifNotNil: [ 
+		self parent printOn: aStream.
+		aStream << '/' ].
 	aStream << self name
 ]

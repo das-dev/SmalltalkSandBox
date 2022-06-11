@@ -36,6 +36,24 @@ NFSDirectoryTest >> testPrinting [
 	self assert: directory printString equals: 'comics'
 ]
 
+{ #category : #'tests - printing' }
+NFSDirectoryTest >> testPrintingDirectory [
+
+	| directory |
+	directory := NFSDirectory new name: 'comics'.
+	self assert: directory printString equals: 'comics'
+]
+
+{ #category : #'tests - printing' }
+NFSDirectoryTest >> testPrintingNestedDirectory [
+
+	| rootDirectory nestedDirectory |
+	rootDirectory := NFSDirectory new name: 'comics'.
+	nestedDirectory := NFSDirectory new name: 'oldcomics'.
+	rootDirectory addElement: nestedDirectory.
+	self assert: nestedDirectory printString equals: 'comics/oldcomics'
+]
+
 { #category : #'tests - storing' }
 NFSDirectoryTest >> testStoringNewDirectory [
 
