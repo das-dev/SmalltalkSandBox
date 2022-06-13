@@ -34,3 +34,19 @@ TempreratureConverterTest >> testFahrenheitToCelsiusScale [
 		do: [ :res :cel | 
 		self assert: (res value closeTo: cel precision: 0.1) ]
 ]
+
+{ #category : #'tests - measuring' }
+TempreratureConverterTest >> testLocationAndDate [
+
+	| office |
+	office := TemperatureConverter new location: 'Office'.
+	"perform two measures that are logged"
+	office measureCelsius: 19.
+	office measureCelsius: 21.
+	"We got effectively two measures"
+	self assert: office measureCount equals: 2.
+	"All the measures were done today"
+	self assert: office dates equals: {Date today . Date today} asOrderedCollection.
+	"We logged the correct temperature"
+	self assert: office temperatures equals: { 19 . 21 } asOrderedCollection
+]
