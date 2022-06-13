@@ -80,6 +80,18 @@ NFSDirectoryTest >> testPrintingNestedDirectory [
 	self assert: nestedDirectory printString equals: 'comics/oldcomics'
 ]
 
+{ #category : #'tests - finding' }
+NFSDirectoryTest >> testSearchFileByContentInDirectories [
+
+	| root file |
+	file := NFSFile new
+		        name: 'babar';
+		        content: 'Babar and Celeste'.
+	root := NFSDirectory new name: 'comics'.
+	root addElement: file.
+	self assert: ((root search: 'Ba') includes: file)
+]
+
 { #category : #'tests - storing' }
 NFSDirectoryTest >> testStoringDirectory [
 

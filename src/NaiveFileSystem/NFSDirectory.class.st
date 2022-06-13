@@ -79,6 +79,12 @@ NFSDirectory >> printOn: aStream [
 	aStream << self name
 ]
 
+{ #category : #'finding/searching' }
+NFSDirectory >> search: query [
+
+	^ self children select: [ :each | each search: query ]
+]
+
 { #category : #accessing }
 NFSDirectory >> size [
 

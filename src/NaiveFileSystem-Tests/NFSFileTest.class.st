@@ -60,6 +60,14 @@ NFSFileTest >> testPrintingFileInDirectory [
 	self assert: file printString equals: 'oldcomics/astroboy'
 ]
 
+{ #category : #'tests - finding' }
+NFSFileTest >> testSearchInfFile [
+	
+	| file |
+	file := NFSFile new content: 'Babar and Celeste'.
+	self assert: (file search: 'Ba')
+]
+
 { #category : #'tests - storing' }
 NFSFileTest >> testStoringFile [
 

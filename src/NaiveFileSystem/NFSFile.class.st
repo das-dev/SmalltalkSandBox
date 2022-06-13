@@ -68,6 +68,12 @@ NFSFile >> printOn: aStream [
 	aStream << self name
 ]
 
+{ #category : #'finding/searching' }
+NFSFile >> search: query [
+ 
+	^ '*', query, '*' match: self content
+]
+
 { #category : #accessing }
 NFSFile >> size [
 	
