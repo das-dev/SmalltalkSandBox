@@ -15,3 +15,9 @@ TemperatureConverter >> convertFahrenheit: anInteger [
 
 	^ anInteger - 32 / 1.8
 ]
+
+{ #category : #converting }
+TemperatureConverter >> convertFahrenheitFrom: low to: high by: step [
+
+	^ (low to: high by: step) collect: [ :each | each -> (self convertFahrenheit: each) ]
+]
