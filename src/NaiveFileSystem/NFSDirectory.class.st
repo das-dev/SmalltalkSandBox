@@ -43,6 +43,12 @@ NFSDirectory >> initialize [
 ]
 
 { #category : #accessing }
+NFSDirectory >> internalSize [
+	
+	^ 4
+]
+
+{ #category : #accessing }
 NFSDirectory >> name [
 	^ name
 ]
@@ -71,4 +77,10 @@ NFSDirectory >> printOn: aStream [
 		self parent printOn: aStream.
 		aStream << '/' ].
 	aStream << self name
+]
+
+{ #category : #accessing }
+NFSDirectory >> size [
+
+	^ self name size + (self children sum: #size) + self internalSize
 ]

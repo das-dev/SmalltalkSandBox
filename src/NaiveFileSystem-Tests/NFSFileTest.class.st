@@ -22,6 +22,14 @@ NFSFileTest >> testFileInDirectoryHasParent [
 	self assert: file parent equals: directory
 ]
 
+{ #category : #'tests - accessing' }
+NFSFileTest >> testFileSize [
+	
+	| file |
+	file := NFSFile new name: 'babar'; content: 'Babar and Celeste'.
+	self assert: file size equals: 22
+]
+
 { #category : #'tests - initial state' }
 NFSFileTest >> testNewFileHasDefaultName [
 	

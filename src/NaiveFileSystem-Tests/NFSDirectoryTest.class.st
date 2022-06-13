@@ -12,6 +12,34 @@ NFSDirectoryTest >> testDirectoryHoldsName [
 	self assert: directory name equals: 'comics'
 ]
 
+{ #category : #'tests - accessing' }
+NFSDirectoryTest >> testDirectorySizeWithFiles [
+	
+	| root file |
+	root := NFSDirectory new name: 'oldcomics'.
+	file := NFSFile new name: 'astroboy'; content: 'super cool robot'.
+	root addElement: file.
+	self assert: root size equals: 37
+]
+
+{ #category : #'tests - accessing' }
+NFSDirectoryTest >> testDirectorySizeWithNestedDirectories [
+	
+	| root nested |
+	root := NFSDirectory new name: 'comics'.
+	nested := NFSDirectory new name: 'oldcomics'.
+	root addElement: nested.
+	self assert: root size equals: 23
+]
+
+{ #category : #'tests - accessing' }
+NFSDirectoryTest >> testEmptyDirectorySize [
+	
+	| directory |
+	directory := NFSDirectory new name: 'comics'.
+	self assert: directory size equals: 10
+]
+
 { #category : #tests }
 NFSDirectoryTest >> testNestedDirectoryHasParent [
 

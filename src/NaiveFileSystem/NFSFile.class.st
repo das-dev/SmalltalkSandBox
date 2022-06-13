@@ -67,3 +67,9 @@ NFSFile >> printOn: aStream [
 		 aStream << '/' ].
 	aStream << self name
 ]
+
+{ #category : #accessing }
+NFSFile >> size [
+	
+	^ self name size + self content size
+]
